@@ -307,7 +307,8 @@ v.predecessor = u;
  graph.bfs(n3);
  }
 }
-	Hasil dari percobaan program diatas adalah (3,d=0) (4,d=1) (2,d=1) (5,d=2) (6,d=2) (1,d=2) (7,d=3) (8,d=3)
+	
+ Hasil dari percobaan program diatas adalah (3,d=0) (4,d=1) (2,d=1) (5,d=2) (6,d=2) (1,d=2) (7,d=3) (8,d=3)
 2.	Ubahlah method static void main sehingga bentuk tree seperti Gambar 4.4 dapat dibentuk. Kemudian tentukan bagaimana algoritma BFS dapat menemukan node 5.
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -422,7 +423,9 @@ v.predecessor = u;
  graph.bfs(n0);
 }
 }
+
 Hasil dari pemograman diatas adalah (0,d=0) (1,d=1) (2,d=1) (3,d=2) (4,d=2) (5,d=2) (6,d=2)
+
 3.	Ubahlah method static void main sehingga bentuk tree seperti Gambar 4.5 dapat dibentuk. Kemudian tentukan bagaimana algoritma BFS dapat menemukan node 9.
 import java.util.ArrayDeque;
 import java.util.ArrayList;
