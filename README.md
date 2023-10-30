@@ -307,8 +307,18 @@ v.predecessor = u;
  graph.bfs(n3);
  }
 }
-	
- Hasil dari percobaan program diatas adalah (3,d=0) (4,d=1) (2,d=1) (5,d=2) (6,d=2) (1,d=2) (7,d=3) (8,d=3)
+
+berikut ini merupakan langkah kerja dari program diatas berdasarkan fungsi tiap program function Inisialisasi dan Pembuatan Graf:
+
+Program dimulai dengan mendefinisikan struktur data untuk merepresentasikan graf menggunakan adjacency list.Beberapa node (Node objects) dan edge (addEdge calls) ditambahkan ke graf. Breadth-First Search (BFS) dipanggil dengan node awal n3 sebagai node awal BFS dan melakukan inisialisasi beberapa atribut pada setiap node dalam graf dengan tujuan yaitu Mengeset warna node (colour) menjadi WHITE (belum dikunjungi).Mengatur jarak node dari node awal (s) ke Integer.MAX_VALUE, mengindikasikan bahwa jarak awal adalah tak terhingga. Menghapus pendahulu (predecessor) dari node. Fungsi bfs menggunakan sebuah antrian (Queue<Node> q) untuk mengatur node-node yang akan dikunjungi. Node awal s dimasukkan ke dalam antrian.Pada Proses yang dilakukan BFS adalah Selama antrian q tidak kosong, program menjalankan BFS untuk menjelajahi graf. Berikut adalah tahapan-tahapannya:
+1.Mengambil node terdepan dari antrian (u).
+2.Mendapatkan daftar node yang berdekatan dengan node u dari adjacency list.
+3.Iterasi melalui daftar node tetangga (adj_u) dari u.
+4.Jika node tetangga (v) belum dikunjungi (v.colour == NodeColour.WHITE), maka node tersebut akan dijadikan sebagai node sedang diproses (GRAY).
+5.Jarak dari v dihitung sebagai jarak dari u ditambah 1 (v.distance = u.distance + 1).u diatur sebagai pendahulu dari v.Node v dimasukkan ke dalam antrian untuk dianalisis lebih lanjut.Setelah semua tetangga u telah diproses, node u diubah statusnya menjadi BLACK (sudah selesai).
+6.Pencetakan Hasil
+Hasil dari percobaan program diatas adalah (3,d=0) (4,d=1) (2,d=1) (5,d=2) (6,d=2) (1,d=2) (7,d=3) (8,d=3)
+
 2.	Ubahlah method static void main sehingga bentuk tree seperti Gambar 4.4 dapat dibentuk. Kemudian tentukan bagaimana algoritma BFS dapat menemukan node 5.
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -424,7 +434,13 @@ v.predecessor = u;
 }
 }
 
-Hasil dari pemograman diatas adalah (0,d=0) (1,d=1) (2,d=1) (3,d=2) (4,d=2) (5,d=2) (6,d=2)
+
+berikut ini merupakan langkah kerja dan fungsi dari program diatas
+1.program menginisialisasi struktur data untuk merepresentasikan graf dengan adjacency list. Setiap node dalam graf didefinisikan sebagai objek Node, yang memiliki atribut data (nomor node), jarak (distance), pendahulu (predecessor), dan warna (colour). Graf itu sendiri diwakili oleh sebuah Map
+2.program menyediakan fungsi addEdge yang digunakan untuk menambahkan edge (sisi) antara dua node dalam graf. Jika salah satu node belum ada dalam graf, program akan membuat entri baru untuknya.
+3.bfs yang merupakan implementasi dari algoritma Breadth-First Search. Algoritma BFS digunakan untuk menjelajahi graf dimulai dari node awal tertentu. Selama proses BFS, program akan menginisialisasi warna, jarak, dan pendahulu setiap node, lalu memproses node-node dalam urutan sesuai dengan konsep antrian (queue). Node-node yang dikunjungi akan diberi warna abu-abu (GRAY), dan jarak serta pendahulu mereka akan diperbarui. Proses ini terus berlanjut hingga seluruh node dalam graf telah dikunjungi.
+4. fungsi main untuk membuat graf dengan node dan edge yang sesuai. Pada akhirnya, program menjalankan BFS dari node awal tertentu dan mencetak urutan traversal BFS serta jarak setiap node dari node awal.
+sehingga didapatkan hasil percobaan sebagai berikut (0,d=0) (1,d=1) (2,d=1) (3,d=2) (4,d=2) (5,d=2) (6,d=2)
 
 3.	Ubahlah method static void main sehingga bentuk tree seperti Gambar 4.5 dapat dibentuk. Kemudian tentukan bagaimana algoritma BFS dapat menemukan node 9.
 import java.util.ArrayDeque;
@@ -568,4 +584,13 @@ v.predecessor = u;
  graph.bfs(n1);
 }
 }
-	Hasil percobaan kode program diatas adalah (1,d=0) (2,d=1) (3,d=1) (4,d=1) (5,d=2) (6,d=2) (7,d=2) (8,d=2) (9,d=3) (10,d=3) (11,d=3) (12,d=3)
+Langkah kerja program tetap mengikuti prinsip-prinsip dasar BFS, yaitu:
+
+1.Inisialisasi atribut warna, jarak, dan pendahulu untuk setiap node dalam graf.
+2.Penggunaan antrian (queue) untuk mengatur node yang akan dikunjungi.
+3.Proses BFS dimulai dari node awal, dan node-node tetangga yang belum dikunjungi akan diberi warna abu-abu (GRAY), jarak dari node awal dihitung, dan pendahulu diatur.
+4.Node-node tersebut kemudian dimasukkan ke dalam antrian untuk dianalisis lebih lanjut.
+5.Setelah semua tetangga dari sebuah node telah diproses, node tersebut diubah statusnya menjadi hitam (BLACK) dan ditampilkan.
+6.Perbedaan utama dalam percobaan ini adalah kompleksitas graf yang lebih tinggi, yang menghasilkan urutan traversal BFS yang lebih rumit dan melibatkan lebih banyak node dan edge. Dalam kasus ini, program akan mengunjungi dan mencetak urutan traversal dari seluruh node dalam graf yang lebih besar tersebut.
+	
+Hasil percobaan kode program diatas adalah (1,d=0) (2,d=1) (3,d=1) (4,d=1) (5,d=2) (6,d=2) (7,d=2) (8,d=2) (9,d=3) (10,d=3) (11,d=3) (12,d=3)
